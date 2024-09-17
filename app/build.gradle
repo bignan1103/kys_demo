@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id 'kotlin-kapt'
 }
 
 android {
@@ -19,6 +20,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
 
     buildTypes {
@@ -34,10 +36,12 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    kapt {
+        correctErrorTypes = true
+    }
 }
 
 dependencies {
-
     implementation libs.androidx.core.ktx
     implementation libs.androidx.appcompat
     implementation libs.material
@@ -48,5 +52,23 @@ dependencies {
     androidTestImplementation libs.androidx.espresso.core
 
     implementation libs.face.detection
+    kapt libs.compiler
+
+    //GSON (Conversion of String to Map & Vice-Versa)
+    implementation libs.gson
+
+    //Lottie-files (Splash-screen Animation)
+    implementation libs.lottie
+
+    // CameraX View class (For camera preview)
+    implementation libs.androidx.camera.core
+    implementation libs.androidx.camera.camera2
+    implementation libs.androidx.camera.lifecycle
+    implementation libs.androidx.camera.view
+
+    //TensorFlow Lite libraries (To recognize faces)
+    implementation libs.tensorflow.lite.task.vision
+    implementation libs.tensorflow.lite.support
+    implementation libs.tensorflow.lite
 
 }

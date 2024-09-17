@@ -1,19 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    tools:context=".MainActivity">
-
-    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center">
+    tools:context=".MainActivity"
+    tools:viewBindingIgnore="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_scan_face"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.6">
+
+        <androidx.camera.view.PreviewView
+            android:id="@+id/pv_scan_face"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/btn_switch_camera"
+            android:layout_width="68dp"
+            android:layout_height="65dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/cam"
+            android:contentDescription="@string/str_switch_camera"
+            android:elevation="1dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_recognize_face"
+        android:layout_width="128dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/round_bg"
+        android:backgroundTint="@color/purple_500"
+        android:gravity="center"
+        android:text="@string/str_add_face"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_scan_face" />
+
+    <TextView
+        android:id="@+id/tv_above_preview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/iv_add_face"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_recognize_face" />
+
+    <View
+        android:id="@+id/view_container_add_face"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_above_preview"
+        app:layout_constraintWidth_percent="0.63"/>
+
+    <ImageView
+        android:id="@+id/iv_add_face"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:background="#2C7E57C2"
+        android:contentDescription="@string/str_iv_add_face"
+        android:elevation="1dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@id/view_container_add_face"
+        app:layout_constraintStart_toStartOf="@id/view_container_add_face"
+        app:layout_constraintTop_toTopOf="@id/view_container_add_face"
+        app:layout_constraintBottom_toBottomOf="@id/view_container_add_face"
+        app:layout_constraintWidth_percent="0.55"
+        tools:srcCompat="@android:drawable/screen_background_light_transparent" />
+
+    <ImageButton
+        android:id="@+id/ib_add_face"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/str_ib_add_face"
+        android:elevation="2dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="@+id/view_container_add_face"
+        app:layout_constraintTop_toTopOf="@+id/view_container_add_face"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <TextView
+        android:id="@+id/tv_preview_info"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:paddingStart="8dp"
+        android:gravity="center"
+        android:paddingEnd="8dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_add_face"
+        app:layout_constraintEnd_toEndOf="@+id/iv_add_face"
+        app:layout_constraintStart_toStartOf="@+id/iv_add_face"
+        app:layout_constraintTop_toTopOf="@+id/iv_add_face" />
+
+    <TextView
+        android:id="@+id/tv_recorded_name"
+        android:layout_width="164dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/str_add_face"
+        android:textAlignment="center"
+        android:textColor="@color/purple_500"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_add_face"
+        app:layout_constraintEnd_toEndOf="@+id/iv_add_face"
+        app:layout_constraintStart_toStartOf="@+id/iv_add_face"
+        app:layout_constraintTop_toTopOf="@+id/iv_add_face" />
 
 
+    <TextView
+        android:id="@+id/tv_actions"
+        android:layout_width="128dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/round_bg"
+        android:backgroundTint="@color/purple_500"
+        android:gravity="center"
+        android:text="@string/str_actions"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_add_face" />
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</layout>

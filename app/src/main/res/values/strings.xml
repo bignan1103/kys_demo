@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">KYS</string>
+
+    <string name="str_switch_camera">Switch Camera</string>
+    <string name="str_add_face">Add Face</string>
+    <string name="str_actions">ACTIONS</string>
+    <string name="str_ib_add_face">Image Button to add face</string>
+    <string name="str_iv_add_face">Imageview for added face</string>
+    <string name="recognized_face_info">
+        Nearest: %1$s\nDist: %2$s\n2nd Nearest: %3$s\nDist: %4$s
+    </string>
+    <string name="unknown_face_info">
+    Unknown\nDist: %1$s\nNearest: %2$s\nDist: %3$s\n2nd Nearest: %4$s\nDist: %5$s
+</string>
 </resources>
